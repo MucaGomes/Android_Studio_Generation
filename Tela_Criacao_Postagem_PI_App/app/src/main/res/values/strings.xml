@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">prototipo_app</string>
+    <string name="link_da_imagem">Link da Imagem</string>
+    <string name="meta_em_r">Meta em R$</string>
+    <string name="descri_o">Descrição</string>
+    <string name="postar">Postar</string>
+    <string name="t_tulo">Título</string>
+    <string name="criar_vaquinha">Criar vaquinha</string>
+    <string name="imagem_de_camera">Imagem de Camera</string>
+    <string-array name="Categoria">
+        <item>Escolha uma categoria</item>
+        <item>Medicamentos</item>
+        <item>Tratamento</item>
+        <item>Cirurgia</item>
+    </string-array>
+</resources>

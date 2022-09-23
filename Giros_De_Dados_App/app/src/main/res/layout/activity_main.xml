@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/bg"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv_dado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFF"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="1" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabDado6"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="180dp"
+        android:clickable="true"
+        android:contentDescription="@string/app_name"
+        android:focusable="true"
+        app:fabCustomSize="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fabDado12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dado"
+        app:maxImageSize="70sp"
+        app:srcCompat="@drawable/dice"
+        app:useCompatPadding="false" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabDado12"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="180dp"
+        android:clickable="true"
+        android:contentDescription="@string/app_name"
+        app:fabCustomSize="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dado"
+        app:maxImageSize="70dp"
+        app:srcCompat="@drawable/dice_12"
+        android:focusable="true" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabDado20"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="180dp"
+        android:clickable="true"
+        android:contentDescription="@string/app_name"
+        app:fabCustomSize="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fabDado12"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dado"
+        app:maxImageSize="70dp"
+        app:srcCompat="@drawable/dice_20"
+        android:focusable="true" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/dado_6_lados"
+        android:textColor="#FFFF"
+        app:layout_constraintEnd_toEndOf="@+id/fabDado6"
+        app:layout_constraintStart_toStartOf="@+id/fabDado6"
+        app:layout_constraintTop_toBottomOf="@+id/fabDado6" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/dado_12_lados"
+        android:textColor="#FFFF"
+        app:layout_constraintEnd_toEndOf="@+id/fabDado12"
+        app:layout_constraintStart_toStartOf="@+id/fabDado12"
+        app:layout_constraintTop_toBottomOf="@+id/fabDado12" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/dado_20_lados"
+        android:textColor="#FFFF"
+        app:layout_constraintEnd_toEndOf="@+id/fabDado20"
+        app:layout_constraintStart_toStartOf="@+id/fabDado20"
+        app:layout_constraintTop_toBottomOf="@+id/fabDado20" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dicewhite"
+        android:contentDescription="@string/imagem_logo" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="100dp"
+        android:text="@string/jogo_dos_dados"
+        android:textColor="#FFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

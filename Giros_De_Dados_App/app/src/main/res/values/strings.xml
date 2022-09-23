@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TesteDado</string>
+    <string name="dado_12_lados">Dado 12 lados</string>
+    <string name="dado_6_lados">Dado 6 Lados</string>
+    <string name="dado_20_lados">Dado 20 lados</string>
+    <string name="jogo_dos_dados">Jogo Dos Dados</string>
+    <string name="imagem_logo">Imagem Logo</string>
+</resources>
