@@ -9,6 +9,6 @@ Repositório Criado com todos os projetos de exercicios propostos pela Generatio
   
   ### Recursos Ultilizados:
   <div>
-    <img  height= "80em" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-plain-wordmark.svg" />
+    <img  height= "80em" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" />
     <img height= "50em" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" />
   </div>
