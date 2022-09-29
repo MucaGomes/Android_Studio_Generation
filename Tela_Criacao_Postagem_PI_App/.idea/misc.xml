@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/AndroidStudioProjects/ProjetosGeneration/Tela_Criacao_Postagem_PI_App/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ProjetosGeneration/Tela_Criacao_Postagem_PI_App/app/src/main/res/layout/fragment_form.xml" value="0.22" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ProjetosGeneration/Tela_Criacao_Postagem_PI_App/app/src/main/res/layout/fragment_list.xml" value="0.22" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ProjetosGeneration/Tela_Criacao_Postagem_PI_App/app/src/main/res/layout/layout_card.xml" value="0.25" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Tela_Teste_Projeto_Integrador/app/src/main/res/layout/activity_main.xml" value="0.25765765765765763" />
         <entry key="app/src/main/res/drawable/ic_camera.xml" value="0.248" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
@@ -14,5 +18,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.22" />
+      </ProjectState>
+    </option>
   </component>
 </project>
