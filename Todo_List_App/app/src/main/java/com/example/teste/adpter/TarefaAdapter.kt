@@ -33,7 +33,7 @@ class TarefaAdapter : RecyclerView.Adapter<TarefaAdapter.TarefaViewHolder>(){
         holder.binding.tvResponsavel.text = tarefa.responsavel
         holder.binding.tvData.text = tarefa.data
         holder.binding.switch1.isChecked = tarefa.status
-        holder.binding.tvCategoria.text = tarefa.categoria
+        holder.binding.tvCategoria.text = tarefa.categoria.descricao
 
     }
 

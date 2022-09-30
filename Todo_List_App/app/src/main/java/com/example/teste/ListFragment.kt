@@ -25,44 +25,11 @@ class ListFragment : Fragment() {
 
         binding = FragmentListBinding.inflate(layoutInflater, container, false)
 
-        // criando um array de lista de tarefas , instanciando a data class Tarefa
-        val listTarefa = listOf<Tarefa>(
-            Tarefa(
-                "Lavar a Louça",
-                "Lavar a louça do dia todo",
-                "Samuel",
-                "2022-05-15",
-                false,
-                "Dia a Dia"
-            ),
-            Tarefa(
-                "Lavar a Louça",
-                "Lavar a louça do dia todo",
-                "Samuel",
-                "2022-05-15",
-                false,
-                "Dia a Dia"
-            ),
-            Tarefa(
-                "Lavar a Louça",
-                "Lavar a louça do dia todo",
-                "Samuel",
-                "2022-05-15",
-                false,
-                "Dia a Dia"
-            )
-        )
-
         // Configurando o adapter
         val adapter = TarefaAdapter()
         binding.recyclerTarefa.layoutManager = LinearLayoutManager(context)
         binding.recyclerTarefa.adapter = adapter
         binding.recyclerTarefa.setHasFixedSize(true)
-
-
-        // Mostramos para o adapter que essa é a lista que ele tem que adaptar , caso contrário ,
-        // o adapter retorna como vazio
-        adapter.setList(listTarefa)
 
         binding.floatingAdd.setOnClickListener{
             findNavController().navigate(R.id.action_listFragment_to_formFragment)
