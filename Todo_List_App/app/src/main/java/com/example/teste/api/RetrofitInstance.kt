@@ -8,7 +8,7 @@ object RetrofitInstance {
 
     private val retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl(Constants.BASE_URL)
+            .baseUrl("https://api-todoapp.onrender.com")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

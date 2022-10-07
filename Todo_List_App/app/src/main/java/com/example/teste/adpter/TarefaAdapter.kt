@@ -9,7 +9,6 @@ import com.example.teste.model.Tarefa
 
 class TarefaAdapter : RecyclerView.Adapter<TarefaAdapter.TarefaViewHolder>(){
 
-
     // Antes de criar os metodos iremos criar essa lista vazia para colocar as infos dentro dela
     private var listTarefa = emptyList<Tarefa>()
 

@@ -10,7 +10,7 @@ import java.time.ZoneId
 import java.util.*
 
 class DatePickerFragment(
-    val timerPickerListener: TimerPickerListener,
+    val timePickerListener: TimePickerListener,
 ) : DialogFragment(), DatePickerDialog.OnDateSetListener {
 
 
@@ -31,11 +31,11 @@ class DatePickerFragment(
         c.set(Calendar.MONTH, p2)
         c.set(Calendar.DAY_OF_MONTH, p3)
 
-        timerPickerListener.onDateSelected(c.time.toInstant().atZone(
+        timePickerListener.onDateSelected(c.time.toInstant().atZone(
             ZoneId.systemDefault()).toLocalDate())
     }
 }
 
-interface TimerPickerListener {
+interface TimePickerListener {
     fun onDateSelected(date: LocalDate)
 }

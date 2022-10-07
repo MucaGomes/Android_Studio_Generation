@@ -7,29 +7,25 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.teste.databinding.FragmentFormBinding
-import com.example.teste.databinding.FragmentListBinding
 import com.example.teste.fragment.DatePickerFragment
-import com.example.teste.fragment.TimerPickerListener
+import com.example.teste.fragment.TimePickerListener
 import com.example.teste.model.Categoria
 import com.example.teste.model.Tarefa
 import java.time.LocalDate
-import java.util.*
 
-class FormFragment : Fragment(), TimerPickerListener {
+class FormFragment : Fragment(), TimePickerListener {
 
     private lateinit var binding: FragmentFormBinding
 
     // usando a by activityViewModels podemos fazer com que nossa viewModel se torne compartilhada
     private val mainViewModel: MainViewModel by activityViewModels()
 
-    private var categoriaSelecionavel = 0L
+    private var categoriaSelecionada = 0L
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -72,7 +68,7 @@ class FormFragment : Fragment(), TimerPickerListener {
     }
 
 
-    // fazemos uma função para passar o nosso spinner ser ter um adapter , e dentro dele
+    // fazemos uma função para passar o nosso spinner ter um adapter , e dentro dele
     // esse adapter é um array que contem as categorias puxadas da API
     private fun spinnerCategoria(listCategoria: List<Categoria>?) {
 
@@ -90,9 +86,10 @@ class FormFragment : Fragment(), TimerPickerListener {
 
                 object : AdapterView.OnItemSelectedListener, AdapterView.OnItemClickListener {
                     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                        val selected = binding.spinnerCategoria.selectedItem as Categoria
+                        val categoriaSelecionadaFun =
+                            binding.spinnerCategoria.selectedItem as Categoria
 
-                        categoriaSelecionavel = selected.id
+                        categoriaSelecionada = categoriaSelecionadaFun.id
                     }
 
                     override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -111,31 +108,34 @@ class FormFragment : Fragment(), TimerPickerListener {
         nome: String,
         descricao: String,
         responsavel: String,
+        data: String,
     ): Boolean {
 
-        return  !(
-                (nome == "" || nome.length < 3 || nome.length > 20 ) ||
+        return !(
+                (nome == "" || nome.length < 3 || nome.length > 20) ||
                         (descricao == "" || descricao.length < 5 || descricao.length > 200) ||
-                        (responsavel == "" || responsavel.length < 3 || responsavel.length > 20)
-                )
+                        (responsavel == "" || responsavel.length < 3 || responsavel.length > 20) ||
+                        data == "")
 
     }
 
-    private fun inserirBanco() {
+    fun inserirBanco() {
         val nome = binding.editNome.text.toString()
         val desc = binding.editDescricao.text.toString()
         val responsavel = binding.editResponsavel.text.toString()
         val data = binding.editData.text.toString()
         val status = binding.switchAtivoCard.isChecked
-        val categoria = Categoria(categoriaSelecionavel,null,null)
+        val categoria = Categoria(categoriaSelecionada, null, null)
 
-        if(validarCampos(nome,desc,responsavel)) {
-            val tarefa = Tarefa(0,nome,desc,responsavel,data,status,categoria)
+        if (validarCampos(nome, desc, responsavel, data)) {
+            val tarefa = Tarefa(
+                0, nome, desc, responsavel, data, status, categoria)
+
             mainViewModel.addTarefa(tarefa)
-            Toast.makeText(context,"Tarefa Criada com Sucesso", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "Tarefa Criada com Sucesso", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_formFragment_to_listFragment)
 
-        }else{
+        } else {
             Toast.makeText(context, "Verifique os Campos Digitados", Toast.LENGTH_SHORT).show()
         }
 

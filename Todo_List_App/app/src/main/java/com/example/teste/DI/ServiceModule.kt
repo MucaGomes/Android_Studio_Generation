@@ -12,7 +12,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object ServiceModule {
-
     // Usamos o Singleton para indicar que o objeto que estamos criando vai ser unico para
     // o projeto inteiro.
     // Usamos o provides para indicar que a classe pode ser injetada.

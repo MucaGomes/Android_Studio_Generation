@@ -21,17 +21,19 @@ class MainViewModel @Inject constructor(
 
     private val _myCategoriaResponse = MutableLiveData<Response<List<Categoria>>>()
 
+    private val _myTarefaResponse = MutableLiveData<Response<List<Tarefa>>>()
+
+    val myTarefaResponse: LiveData<Response<List<Tarefa>>> = _myTarefaResponse
+
     val myCategoriaResponse: LiveData<Response<List<Categoria>>> = _myCategoriaResponse
 
     val dataSelecionada = MutableLiveData<LocalDate>()
 
-    init {
-        //listCategoria()
-    }
 
     fun listCategoria() {
         viewModelScope.launch {
             try {
+
                 val response = repository.listCategoria()
                 _myCategoriaResponse.value = response
 
@@ -41,13 +43,25 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    fun addTarefa(tarefa : Tarefa) {
+    fun addTarefa(tarefa: Tarefa) {
         viewModelScope.launch {
             try {
                 repository.addTarefa(tarefa)
-
             } catch (e: Exception) {
                 Log.d("Erro", e.message.toString())
+            }
+        }
+    }
+
+    fun listTarefa () {
+        viewModelScope.launch {
+             try {
+
+                 val response = repository.listTarefa()
+                 _myTarefaResponse.value = response
+
+            }catch (e: Exception) {
+                Log.d("erro", e.message.toString())
             }
         }
     }
