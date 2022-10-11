@@ -16,8 +16,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val repository: Repository
+    private val repository: Repository,
 ) : ViewModel() {
+
+    var tarefaSelecionada: Tarefa? = null
 
     private val _myCategoriaResponse = MutableLiveData<Response<List<Categoria>>>()
 
@@ -53,14 +55,37 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    fun listTarefa () {
+    fun listTarefa() {
         viewModelScope.launch {
-             try {
+            try {
 
-                 val response = repository.listTarefa()
-                 _myTarefaResponse.value = response
+                val response = repository.listTarefa()
+                _myTarefaResponse.value = response
 
-            }catch (e: Exception) {
+            } catch (e: Exception) {
+                Log.d("erro", e.message.toString())
+            }
+        }
+    }
+
+    fun updateTarefa(tarefa: Tarefa) {
+        viewModelScope.launch {
+            try {
+                repository.updateTarefa(tarefa)
+                listTarefa()
+            } catch (e: Exception) {
+                Log.d("erro", e.message.toString())
+
+            }
+        }
+    }
+
+    fun deleteTarefa(id: Long) {
+        viewModelScope.launch {
+            try {
+                repository.deteleteTarefa(id)
+                listTarefa()
+            } catch (e: Exception) {
                 Log.d("erro", e.message.toString())
             }
         }

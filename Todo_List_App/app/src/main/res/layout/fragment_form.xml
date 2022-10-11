@@ -4,104 +4,145 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FormFragment" >
+    android:background="#037A76"
+    tools:context=".FormFragment">
 
-    <EditText
-        android:id="@+id/editNome"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:hint="Nome"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/criar_tarefa"
+        android:textAlignment="viewStart"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editDescricao"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:hint="Descricao"
-        android:inputType="textMultiLine|textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNome" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:src="@drawable/notebook"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
 
-    <EditText
-        android:id="@+id/editResponsavel"
-        android:layout_width="0dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:hint="Responsavel"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
+        android:layout_margin="15dp"
+        app:cardBackgroundColor="#FFEB3B"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editDescricao" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/editData"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:focusable="false"
-        android:hint="Data"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editResponsavel" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <Switch
-        android:id="@+id/switchAtivoCard"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:minHeight="48dp"
-        android:text="Em andamento"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editData" />
 
-    <Spinner
-        android:id="@+id/spinnerCategoria"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switchAtivoCard"
-        tools:ignore="SpeakableTextPresentCheck" />
+            <EditText
+                android:id="@+id/editNome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:hint="@string/nome"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:textColorHint="#000000"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="32dp"
+                tools:layout_editor_absoluteY="32dp" />
 
-    <Button
-        android:id="@+id/buttonSalvar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Salvar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerCategoria" />
+            <EditText
+                android:id="@+id/editDescricao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:hint="@string/descricao"
+                android:inputType="textMultiLine|textPersonName"
+                android:minHeight="48dp"
+                android:textColorHint="#000000"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="32dp"
+                tools:layout_editor_absoluteY="112dp" />
+
+            <EditText
+                android:id="@+id/editResponsavel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:hint="@string/responsavel"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:textColorHint="#000000"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="32dp"
+                tools:layout_editor_absoluteY="192dp" />
+
+            <EditText
+                android:id="@+id/editData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="@string/data"
+                android:inputType="textPersonName"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="32dp"
+                tools:layout_editor_absoluteY="272dp" />
+
+            <Switch
+                android:id="@+id/switchAtivoCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:minHeight="48dp"
+                android:text="Em andamento"
+                android:textColor="@color/black"
+                android:textColorHint="#FFFFFF"
+                android:textSize="24sp"
+                tools:ignore="UseSwitchCompatOrMaterialXml"
+                tools:layout_editor_absoluteX="32dp"
+                tools:layout_editor_absoluteY="352dp" />
+
+            <Spinner
+                android:id="@+id/spinnerCategoria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="#61E4C5"
+                android:minHeight="48dp"
+                android:theme="@style/Spinner"
+                tools:ignore="SpeakableTextPresentCheck"
+                tools:layout_editor_absoluteX="32dp"
+                tools:layout_editor_absoluteY="432dp" />
+
+
+            <Button
+                android:id="@+id/buttonSalvar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:text="@string/salvar"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                tools:layout_editor_absoluteX="160dp"
+                tools:layout_editor_absoluteY="512dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

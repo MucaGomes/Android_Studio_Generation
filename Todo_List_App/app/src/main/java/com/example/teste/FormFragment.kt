@@ -26,6 +26,7 @@ class FormFragment : Fragment(), TimePickerListener {
     private val mainViewModel: MainViewModel by activityViewModels()
 
     private var categoriaSelecionada = 0L
+    private var tarefaSelecionada: Tarefa? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +35,8 @@ class FormFragment : Fragment(), TimePickerListener {
 
         // Inflate the layout for this fragment
         binding = FragmentFormBinding.inflate(layoutInflater, container, false)
+
+        carregarDados()
 
         mainViewModel.listCategoria()
 
@@ -82,14 +85,13 @@ class FormFragment : Fragment(), TimePickerListener {
                     listCategoria
                 )
 
-            binding.spinnerCategoria.onItemClickListener =
+            binding.spinnerCategoria.onItemSelectedListener =
 
                 object : AdapterView.OnItemSelectedListener, AdapterView.OnItemClickListener {
                     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                        val categoriaSelecionadaFun =
-                            binding.spinnerCategoria.selectedItem as Categoria
+                        val selected = binding.spinnerCategoria.selectedItem as Categoria
 
-                        categoriaSelecionada = categoriaSelecionadaFun.id
+                        categoriaSelecionada = selected.id
                     }
 
                     override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -128,17 +130,38 @@ class FormFragment : Fragment(), TimePickerListener {
         val categoria = Categoria(categoriaSelecionada, null, null)
 
         if (validarCampos(nome, desc, responsavel, data)) {
-            val tarefa = Tarefa(
-                0, nome, desc, responsavel, data, status, categoria)
+            val salvar: String
 
-            mainViewModel.addTarefa(tarefa)
-            Toast.makeText(context, "Tarefa Criada com Sucesso", Toast.LENGTH_LONG).show()
+            if (tarefaSelecionada != null) {
+                salvar = "Tarefa Atualizada Com Sucesso!!"
+                val tarefa = Tarefa(
+                    tarefaSelecionada?.id!!, nome, desc, responsavel, data, status, categoria)
+                mainViewModel.updateTarefa(tarefa)
+            } else {
+                salvar = "Tarefa Criada com Sucesso!!"
+                val tarefa = Tarefa(
+                    0, nome, desc, responsavel, data, status, categoria)
+                mainViewModel.addTarefa(tarefa)
+            }
+            Toast.makeText(context, salvar, Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_formFragment_to_listFragment)
 
         } else {
             Toast.makeText(context, "Verifique os Campos Digitados", Toast.LENGTH_SHORT).show()
         }
 
+    }
+
+    private fun carregarDados() {
+        tarefaSelecionada = mainViewModel.tarefaSelecionada
+        if (tarefaSelecionada != null) {
+            binding.editNome.setText(tarefaSelecionada?.nome)
+            binding.editDescricao.setText(tarefaSelecionada?.descricao)
+            binding.editResponsavel.setText(tarefaSelecionada?.responsavel)
+            binding.editData.setText(tarefaSelecionada?.data)
+            binding.switchAtivoCard.isChecked = tarefaSelecionada?.status!!
+
+        }
     }
 
 

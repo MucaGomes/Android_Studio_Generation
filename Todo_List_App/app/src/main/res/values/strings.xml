@@ -1,6 +1,12 @@
 <resources>
-    <string name="app_name">Teste</string>
+    <string name="app_name">Agenda de Tarefas</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="em_andamento">Em andamento</string>
+    <string name="criar_tarefa">CRIAR TAREFA</string>
+    <string name="nome">Nome</string>
+    <string name="descricao">Descrição</string>
+    <string name="responsavel">Responsavel</string>
+    <string name="data">Data</string>
+    <string name="salvar">Salvar</string>
 </resources>

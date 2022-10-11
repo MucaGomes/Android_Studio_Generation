@@ -10,12 +10,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.teste.R
 import com.example.teste.adpter.TarefaAdapter
+import com.example.teste.adpter.TaskClickLinstener
 import com.example.teste.databinding.ActivityMainBinding
 import com.example.teste.databinding.FragmentListBinding
 import com.example.teste.model.Tarefa
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class ListFragment : Fragment() {
+class ListFragment : Fragment(), TaskClickLinstener {
 
     private lateinit var binding: FragmentListBinding
 
@@ -32,12 +33,14 @@ class ListFragment : Fragment() {
         mainViewModel.listTarefa()
 
         // Configurando o adapter
-        val adapter = TarefaAdapter()
+        val adapter = TarefaAdapter(this, mainViewModel, requireContext())
         binding.recyclerTarefa.layoutManager = LinearLayoutManager(context)
         binding.recyclerTarefa.adapter = adapter
         binding.recyclerTarefa.setHasFixedSize(true)
 
         binding.floatingAdd.setOnClickListener {
+            mainViewModel.tarefaSelecionada = null
+
             findNavController().navigate(R.id.action_listFragment_to_formFragment)
         }
 
@@ -48,5 +51,10 @@ class ListFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onTaskClickListener(tarefa: Tarefa) {
+        mainViewModel.tarefaSelecionada = tarefa
+        findNavController().navigate(R.id.action_listFragment_to_formFragment)
     }
 }
